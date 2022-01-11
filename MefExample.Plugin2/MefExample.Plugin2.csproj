@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MefExample.Core\MefExample.Core.csproj" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /Y &quot;$(TargetDir.TrimEnd('\'))&quot; &quot;$(SolutionDir)MefExample.Api\bin\$(ConfigurationName)\net5.0\Plugins\$(ProjectName)&quot; /s /i" />
+  </Target>
+</Project>
