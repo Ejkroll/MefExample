@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,7 +10,7 @@
   </ItemGroup>
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /Y &quot;$(TargetDir.TrimEnd('\'))&quot; &quot;$(SolutionDir)MefExample.Api\bin\$(ConfigurationName)\net5.0\Plugins\$(ProjectName)&quot; /s /i&#xD;&#xA;" />
+    <Exec Command="xcopy /Y &quot;$(TargetDir.TrimEnd('\'))&quot; &quot;$(SolutionDir)MefExample.Api\bin\$(ConfigurationName)\net8.0\Plugins\$(ProjectName)&quot; /s /i&#xD;&#xA;" />
   </Target>
 
 </Project>

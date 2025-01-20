@@ -1,8 +1,7 @@
 ﻿
-namespace MefExample.Core
+namespace MefExample.Core;
+
+public interface IPluginService
 {
-    public interface IPluginService
-    {
-        string DoSomething();
-    }
+    string DoSomething();
 }

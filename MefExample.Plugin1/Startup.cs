@@ -1,12 +1,15 @@
 ﻿using MefExample.Core;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace MefExample.Plugin1
+namespace MefExample.Plugin1;
+
+public class Startup : IPluginStartup
 {
-    public class Startup : IPluginStartup
+    public IServiceCollection ConfigureServices(IServiceCollection services, IConfiguration configuration)
     {
-        public void ConfigureServices(IPluginRegistrar pluginRegistrar)
-        {
-            pluginRegistrar.AddScoped<IPluginService, PluginService1>();
-        }
+        services.AddScoped<IPluginService, PluginService1>();
+
+        return services;
     }
 }
